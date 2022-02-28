@@ -10,10 +10,13 @@
 template<typename T>
 class Deque : public DequeInterface<T>{
 public:
-   CircularArray<T> circularArray(4);
+   CircularArray<T> circularArray;
 
-   Deque() {}
-   ~Deque() {}
+   Deque(const size_t elems) : circularArray(elems) {
+   };
+
+   ~Deque() {
+   }
    //Create a Deque template class derived from the DequeInterface class.
    //Use a dynamic array to contain the typename objects.
    //Use a default array size of 4 and resize as needed.

@@ -10,87 +10,174 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+// **********************************************************
+// **********************************************************
 template<typename T>
 class CircularArray {
-public:
-   CircularArray(const size_t elems) {
-      cap = elems;
-      arr = new T[elems];
-      tail = head = arr ;
-      size = 0;
-   };
-
-   int enqueue(const T &data) {
-      if (size < cap) {
-         if (size == 0) {
-            head = tail = arr;
-            *tail = data;
-            size++;
-            return 0;
-         }
-
-         if (tail == &arr[cap]) {
-            tail = arr;
-            *tail = data;
-            size++;
-         } else {
-            tail = tail + 1;
-            *tail = data;
-            size++;
-         }
-         return 0;
-      } else {
-         //increase array size and add it
-         T *newArray = new T[cap * 2];
-         T *newTail = newArray;
-         size_t tempSize = size;
-
-         for (unsigned int i = 0; i < tempSize; i++) {
-            newTail = newArray + i;
-            newTail = dequeue();
-         }
-
-         delete [] arr;
-         arr = newArray;
-         cap *= 2;
-         head = arr;
-         tail = newTail;
-         enqueue(data);
-      }
-   }
-
-   T *dequeue() {
-      if (size != 0) {
-         // return value will equal head
-         auto ret = head;
-
-         if (head == &arr[cap]) {
-            head = arr;
-         } else {
-            head = head + 1;
-         }
-
-         size--;
-         return ret;
-      } else {
-         cout << "Array is empty !" << endl;
-         return nullptr;
-      }
-   }
-
-   size_t getSize() {
-      return size;
-   }
-
-   ~CircularArray() {
-      delete [] arr;
-   }
-
-private:
    T *arr = nullptr;
    T *head = nullptr;
    T *tail = nullptr;
    size_t cap;
-   size_t size;
+   size_t numElements;
+
+public:
+   // **********************************************************
+   CircularArray(const size_t elems) {
+      cap = elems;
+      arr = new T[elems];
+      tail = head = arr ;
+      numElements = 0;
+   };
+
+   // **********************************************************
+   ~CircularArray() {
+      delete [] arr;
+   }
+
+   // **********************************************************
+   void resetArray() {
+      tail = head = arr ;
+   }
+
+   // **********************************************************
+   size_t size() {
+      return numElements;
+   }
+
+   // **********************************************************
+   const T* front() {
+      if(numElements == 0) {
+         return nullptr;
+      } else {
+         return head;
+      }
+   }
+
+   // **********************************************************
+   const T* back() {
+      if(numElements == 0) {
+         return nullptr;
+      } else {
+         return tail;
+      }
+   }
+
+   // **********************************************************
+   void push_back(const T &data) {
+      if (numElements < cap) {
+         if (numElements == 0) {
+            head = tail = arr;
+            *tail = data;
+            numElements++;
+         } else if (tail == &arr[cap-1]) {
+            tail = arr;
+            *tail = data;
+            numElements++;
+         } else {
+            tail += 1;
+            *tail = data;
+            numElements++;
+         }
+      } else {
+         doubleArraySize();
+         push_back(data);
+      }
+   }
+
+   // **********************************************************
+   void push_front(const T &data) {
+      if (numElements < cap) {
+         if (numElements == 0) {
+            head = tail = arr;
+            *tail = data;
+            numElements++;
+         } else if (head == arr) {
+            head = &arr[cap - 1];
+            *head = data;
+            numElements++;
+         } else {
+            head -= 1;
+            *head = data;
+            numElements++;
+         }
+      } else {
+         doubleArraySize();
+         push_front(data);
+      }
+   }
+
+   // **********************************************************
+   void pop_front() {
+      if (numElements != 0) {
+         if (head == &arr[cap - 1]) {
+            head = arr;
+         } else {
+            head += 1;
+         }
+         numElements--;
+         if(numElements == 0) {
+            resetArray();
+         }
+      } else {
+         cout << "Array is empty !" << endl;
+      }
+   }
+
+   // **********************************************************
+   void pop_back() {
+      if (numElements != 0) {
+         if (tail == arr) {
+            tail == &arr[cap - 1];
+         } else {
+            tail -= 1;
+         }
+         numElements--;
+      } else {
+         cout << "Array is empty !" << endl;
+      }
+   }
+
+   // **********************************************************
+   void doubleArraySize() {
+      T *newArray = new T[cap * 2];
+      T *newTail = newArray;
+      size_t tempSize = numElements;
+
+      for (unsigned int i = 0; i < tempSize; i++) {
+         newTail = newArray + i;
+         *newTail = *head;
+         pop_front();
+      }
+
+      delete [] arr;
+      arr = newArray;
+      cap *= 2;
+      head = arr;
+      tail = newTail;
+      numElements = tempSize;
+   }
+
+   // **********************************************************
+   string toString(void) const {
+      ostringstream oss;
+
+      T *iterator = head;
+      for(unsigned int i = 0; i < numElements; i++) {
+         oss << *(iterator) << " ";
+         iterator += 1;
+         if(iterator > &(arr[cap-1])) {
+            iterator = arr;
+         }
+      }
+
+      return oss.str();
+   }
+
+   // **********************************************************
+   friend ostream &operator<<(ostream &os, const CircularArray<T> &circularArray) {
+      os << circularArray.toString();
+      return os;
+   }
 };
+
 #endif //LAB6_CIRCULARARRAY_H

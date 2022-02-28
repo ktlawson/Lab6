@@ -54,6 +54,21 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeFindCodeBlocks.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeExtraGeneratorDetermineCompilerMacrosAndIncludeDirs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/ProcessorCount.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
 			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeCInformation.cmake"
 		},
 		{
@@ -150,8 +165,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/Users/Katelyn/Source/CS235/Lab6/cmake-build-debug",
-		"source" : "/Users/Katelyn/Source/CS235/Lab6"
+		"build" : "/Users/toddlawson/My Drive/Personal/Katelyn/CS235/Lab6/cmake-build-debug",
+		"source" : "/Users/toddlawson/My Drive/Personal/Katelyn/CS235/Lab6"
 	},
 	"version" : 
 	{
