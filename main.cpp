@@ -38,6 +38,9 @@ int main(int argc, char *argv[]) {
 
    // **********************************************************
    // TEST CODE START
+   Stack<Car> carStack(4);
+   // I haven't implemented all the stack methods yet.
+   
    CircularArray<Car> ca(4);
    Car car1(1);
    Car car2(2);
@@ -69,15 +72,8 @@ int main(int argc, char *argv[]) {
    cout << ca << endl;
    cout << "Num Cars: " << ca.size() << endl;
 
-   cout << "Test";
-   Stack<Car> carStack(4);
-   // I haven't implemented all the stack methods yet.
 
-   // TEST CODE END
-   // **********************************************************
-
-
-//   ca.push_back(car1);
+   //   ca.push_back(car1);
 //   cout << ca << endl;
 //   ca.push_front(car2);
 //   cout << ca << endl;
@@ -99,9 +95,12 @@ int main(int argc, char *argv[]) {
 //   ca.push_back(car5);
 //   cout << ca << endl;
 
-
-
    cout << "Test";
+   // TEST CODE END
+   // **********************************************************
+
+
+
 
    // Open input and output files
    // process input strings
