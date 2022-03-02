@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+CMakeCache.txt
+cmake-build-debug/Lab6
+cmake-build-debug/Testing/Temporary/LastTest.log
