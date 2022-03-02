@@ -16,13 +16,14 @@ using namespace std;
 
 template<typename T>
 class Station {
+   const int DEFAULT_DEQUE_SIZE = 4;
 public:
-   Station() : train(4) {}
+   Station() : train(DEFAULT_DEQUE_SIZE), stack(DEFAULT_DEQUE_SIZE), queue(DEFAULT_DEQUE_SIZE) {}
    ~Station() {}
 
    Vector<T> train;
-   //Stack<T> stack;
-   //Queue<T> queue;
+   Stack<T> stack;
+   Queue<T> queue;
    T turnTableCar;
    bool empty = true;
 

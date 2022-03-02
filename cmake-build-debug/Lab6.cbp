@@ -92,7 +92,16 @@
 		<Unit filename="/Users/toddlawson/My Drive/Personal/Katelyn/CS235/Lab6/DequeInterface.h">
 			<Option target="Lab6"/>
 		</Unit>
+		<Unit filename="/Users/toddlawson/My Drive/Personal/Katelyn/CS235/Lab6/Queue.h">
+			<Option target="Lab6"/>
+		</Unit>
 		<Unit filename="/Users/toddlawson/My Drive/Personal/Katelyn/CS235/Lab6/Stack.h">
+			<Option target="Lab6"/>
+		</Unit>
+		<Unit filename="/Users/toddlawson/My Drive/Personal/Katelyn/CS235/Lab6/Station.h">
+			<Option target="Lab6"/>
+		</Unit>
+		<Unit filename="/Users/toddlawson/My Drive/Personal/Katelyn/CS235/Lab6/Vector.h">
 			<Option target="Lab6"/>
 		</Unit>
 		<Unit filename="/Users/toddlawson/My Drive/Personal/Katelyn/CS235/Lab6/main.cpp">

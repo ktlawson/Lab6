@@ -40,7 +40,7 @@ public:
    }
 
    // **********************************************************
-   size_t size() {
+   size_t size() const {
       return numElements;
    }
 
@@ -62,7 +62,7 @@ public:
    }
 
    // **********************************************************
-   bool empty() {
+   bool empty() const {
       return size() == 0;
    }
 
