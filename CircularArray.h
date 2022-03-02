@@ -45,6 +45,28 @@ public:
    }
 
    // **********************************************************
+   T& at(size_t index) {
+      T *current = head;
+      if (index < size()) {
+         for (unsigned int i = 0; i < index; i++) {
+            if (current == &arr[cap]) {
+               current = arr;
+            } else {
+               current += 1;
+            }
+         }
+         return *current;
+      } else {
+         throw "Out of Bounds";
+      }
+   }
+
+   // **********************************************************
+   bool empty() {
+      return size() == 0;
+   }
+
+   // **********************************************************
    const T* front() {
       if(numElements == 0) {
          return nullptr;

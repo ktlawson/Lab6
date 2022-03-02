@@ -3,4 +3,4 @@ project(Lab6)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Lab6 main.cpp DequeInterface.h Car.h Deque.h CircularArray.h Stack.h)
+add_executable(Lab6 main.cpp DequeInterface.h Car.h Deque.h CircularArray.h Stack.h Queue.h Vector.h Station.h)

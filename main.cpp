@@ -6,6 +6,7 @@
 #include "Car.h"
 #include "CircularArray.h"
 #include "Stack.h"
+#include "Station.h"
 
 using namespace std;
 
@@ -38,39 +39,39 @@ int main(int argc, char *argv[]) {
 
    // **********************************************************
    // TEST CODE START
-   Stack<Car> carStack(4);
-   // I haven't implemented all the stack methods yet.
-   
-   CircularArray<Car> ca(4);
-   Car car1(1);
-   Car car2(2);
-   Car car3(3);
-   Car car4(4);
-   Car car5(5);
-   Car car6(6);
-
-   ca.push_back(car1);
-   ca.push_back(car2);
-   cout << ca << endl;
-   cout << "Num Cars: " << ca.size() << endl;
-   cout << "Car: " << *ca.front() << endl;
-   cout << "Car: " << *ca.back() << endl;
-   ca.pop_back();
-   cout << ca << endl;
-   cout << "Num Cars: " << ca.size() << endl;
-   ca.push_back(car3);
-   ca.push_back(car4);
-   ca.push_back(car5);
-   cout << ca << endl;
-   cout << "Num Cars: " << ca.size() << endl;
-   ca.push_back(car6);
-   cout << ca << endl;
-   cout << "Num Cars: " << ca.size() << endl;
-   ca.pop_front();
-   ca.pop_front();
-   ca.pop_front();
-   cout << ca << endl;
-   cout << "Num Cars: " << ca.size() << endl;
+//   Stack<Car> carStack(4);
+//   // I haven't implemented all the stack methods yet.
+//
+//   CircularArray<Car> ca(4);
+//   Car car1(1);
+//   Car car2(2);
+//   Car car3(3);
+//   Car car4(4);
+//   Car car5(5);
+//   Car car6(6);
+//
+//   ca.push_back(car1);
+//   ca.push_back(car2);
+//   cout << ca << endl;
+//   cout << "Num Cars: " << ca.size() << endl;
+//   cout << "Car: " << *ca.front() << endl;
+//   cout << "Car: " << *ca.back() << endl;
+//   ca.pop_back();
+//   cout << ca << endl;
+//   cout << "Num Cars: " << ca.size() << endl;
+//   ca.push_back(car3);
+//   ca.push_back(car4);
+//   ca.push_back(car5);
+//   cout << ca << endl;
+//   cout << "Num Cars: " << ca.size() << endl;
+//   ca.push_back(car6);
+//   cout << ca << endl;
+//   cout << "Num Cars: " << ca.size() << endl;
+//   ca.pop_front();
+//   ca.pop_front();
+//   ca.pop_front();
+//   cout << ca << endl;
+//   cout << "Num Cars: " << ca.size() << endl;
 
 
    //   ca.push_back(car1);
@@ -98,8 +99,8 @@ int main(int argc, char *argv[]) {
    cout << "Test";
    // TEST CODE END
    // **********************************************************
-
-
+   Station<Car> station;
+   station.addCar(Car(1));
 
 
    // Open input and output files

@@ -1,9 +1,9 @@
 //
-// Created by Todd Lawson on 2/28/22.
+// Created by Katelyn Lawson on 3/1/22.
 //
 
-#ifndef LAB6_STACK_H
-#define LAB6_STACK_H
+#ifndef LAB6_VECTOR_H
+#define LAB6_VECTOR_H
 
 #include <iostream>
 #include <sstream>
@@ -11,21 +11,21 @@
 using namespace std;
 
 template<typename T>
-class Stack {
+class Vector {
    Deque<T> deque;
 
 public:
-   Stack(const size_t elems) : deque(elems) {
+   Vector(const size_t elems) : deque(elems) {
    }
 
-   ~Stack() {
+   ~Vector() {
    }
 
-   virtual void push(const T& data) {
+   virtual void push_back(const T& data) {
       deque.push_back(data);
    }
 
-   virtual void pop() {
+   virtual void pop_back() {
       deque.pop_back();
    }
 
@@ -33,7 +33,7 @@ public:
       return deque.at(index);;
    }
 
-   virtual T& top() {
+   virtual T& back() {
       return deque.back();
    }
 
@@ -49,10 +49,11 @@ public:
    }
 
    // **********************************************************
-   friend ostream &operator<<(ostream &os, const Stack<T> &stack) {
-      os << stack.toString();
+   friend ostream &operator<<(ostream &os, const Vector<T> &vector) {
+      os << vector.toString();
       return os;
    }
+
 };
 
-#endif //LAB6_STACK_H
+#endif //LAB6_VECTOR_H
